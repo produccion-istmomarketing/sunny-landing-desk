@@ -9,7 +9,6 @@ import {
   CheckCircle2,
   Bed,
   Bath,
-  Home,
   Ruler,
   ArrowRight,
   MessageCircle,
@@ -35,25 +34,25 @@ import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
 
 import heroHouse from "@/assets/hero-house.jpg";
-import modelAurora from "@/assets/model-aurora.jpg";
-import modelAuroraPlus from "@/assets/model-aurora-plus.jpg";
-import modelVentura from "@/assets/model-ventura.jpg";
+import modelAura from "@/assets/model-aura.jpg";
+import modelNova from "@/assets/model-nova.jpg";
 import projectAerial from "@/assets/project-aerial.jpg";
+import logoNovaSur from "@/assets/logo-nova-sur.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Urbanización San Antonio — Tu casa propia en Bugaba, Chiriquí" },
+      { title: "Residencial Nova Sur — Tu casa propia en David, Chiriquí" },
       {
         name: "description",
         content:
-          "Casas terminadas en La Concepción, Bugaba. Ubicación estratégica, precios accesibles y financiamiento con bancos aliados. Agenda tu visita hoy.",
+          "Casas modernas en David, Chiriquí. Ubicación estratégica en Las Moras, precios accesibles y financiamiento con bancos aliados. Agenda tu visita hoy.",
       },
-      { property: "og:title", content: "Urbanización San Antonio — Bugaba" },
+      { property: "og:title", content: "Residencial Nova Sur — David, Chiriquí" },
       {
         property: "og:description",
         content:
-          "Diseño moderno, entorno tranquilo y una comunidad pensada para vivir mejor en Bugaba, Chiriquí.",
+          "Diseño moderno, entorno tranquilo y una comunidad pensada para vivir mejor en David, Chiriquí.",
       },
       { property: "og:image", content: heroHouse },
       { name: "twitter:image", content: heroHouse },
@@ -69,10 +68,10 @@ const features = [
     icon: MapPin,
     title: "Ubicación estratégica",
     items: [
-      "En La Concepción, Bugaba, Chiriquí",
-      "A pocos minutos de la Vía Interamericana",
-      "Cerca de comercios, servicios y accesos principales",
-      "Vía directa al nuevo hospital de Bugaba",
+      "En el área de Las Moras, David, Chiriquí",
+      "A solo 5 minutos del centro de la ciudad",
+      "Cerca de comercios, escuelas y servicios",
+      "Fácil acceso a transporte público",
     ],
   },
   {
@@ -97,59 +96,35 @@ const features = [
 
 const models = [
   {
-    name: "Modelo Aurora",
-    image: modelAurora,
-    open: "54.13 m²",
-    closed: "7.92 m²",
-    total: "62.05 m²",
+    name: "Modelo Aura",
+    image: modelAura,
     bedrooms: 3,
     baths: 1,
     features: [
+      "3 habitaciones",
+      "1 baño",
+      "Entrada",
       "Sala / comedor",
-      "Muebles de cocina",
-      "Garaje abierto",
-      "Lavandería abierta",
-      "Grama",
     ],
   },
   {
-    name: "Aurora Plus",
-    image: modelAuroraPlus,
-    open: "54.13 m²",
-    closed: "23.92 m²",
-    total: "78.05 m²",
+    name: "Modelo Nova",
+    image: modelNova,
     bedrooms: 3,
     baths: 1,
     features: [
+      "3 habitaciones",
+      "1 baño",
+      "Entrada",
       "Sala / comedor",
-      "Muebles de cocina",
-      "Closet",
-      "Lavandería semicerrada",
-      "Espejo y muebles de baño",
-    ],
-  },
-  {
-    name: "Ventura",
-    image: modelVentura,
-    open: "62.79 m²",
-    closed: "19.92 m²",
-    total: "82.71 m²",
-    bedrooms: 3,
-    baths: 2,
-    features: [
-      "Sala / comedor",
-      "Muebles de cocina",
-      "Closet",
-      "Lavandería incorporada",
-      "2 baños (habitación principal)",
     ],
   },
 ];
 
 const faqs = [
   {
-    q: "¿Dónde está ubicada la Urbanización San Antonio?",
-    a: "La Urbanización San Antonio está ubicada en La Concepción, distrito de Bugaba, provincia de Chiriquí, a solo 2–3 minutos de la Vía Interamericana, cerca del área comercial de Bugaba y junto al nuevo Hospital Dr. José Félix Espinosa Barroso.",
+    q: "¿Dónde está ubicado Residencial Nova Sur?",
+    a: "Residencial Nova Sur está ubicado en el área de Las Moras, en David, Chiriquí, a solo 5 minutos del centro de la ciudad. Es un proyecto de casas modernas que ofrece fácil acceso a transporte público, restaurantes y escuelas en una zona residencial en crecimiento.",
   },
   {
     q: "¿Las casas están terminadas o en construcción?",
@@ -157,7 +132,7 @@ const faqs = [
   },
   {
     q: "¿Cuántas habitaciones y baños tienen las casas?",
-    a: "Los modelos cuentan con 3 habitaciones, 1 o 2 baños según el modelo, sala/comedor, cocina, área de lavandería, garaje (abierto o techado) y área de grama.",
+    a: "Ambos modelos cuentan con 3 habitaciones, 1 baño, entrada y sala/comedor, ideales para familias que buscan comodidad y funcionalidad.",
   },
   {
     q: "¿Trabajan con bancos para el financiamiento?",
@@ -165,14 +140,14 @@ const faqs = [
   },
   {
     q: "¿Hay fácil acceso al transporte y comercios?",
-    a: "Sí. Gracias a su acceso directo desde la Interamericana, tienes fácil movilidad hacia Bugaba, David y zonas cercanas, además de supermercados, centros comerciales, farmacias y servicios esenciales a pocos minutos.",
+    a: "Sí. Al estar a 5 minutos del centro de David, tienes acceso rápido a supermercados, centros comerciales, farmacias, escuelas y transporte público.",
   },
 ];
 
 function Index() {
   const [form, setForm] = useState({
     name: "",
-    model: "Aurora",
+    model: "Aura",
     email: "",
     phone: "",
   });
@@ -184,7 +159,7 @@ function Index() {
       return;
     }
     toast.success("¡Gracias! Te contactaremos pronto.");
-    setForm({ name: "", model: "Aurora", email: "", phone: "" });
+    setForm({ name: "", model: "Aura", email: "", phone: "" });
   };
 
   return (
@@ -195,15 +170,13 @@ function Index() {
       <header className="fixed inset-x-0 top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
           <a href="#" className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-md bg-gradient-to-br from-primary to-[var(--primary-glow)] text-primary-foreground">
-              <Home className="h-5 w-5" />
-            </div>
-            <div className="leading-tight">
-              <div className="text-sm font-bold tracking-wide">San Antonio</div>
-              <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                Residencial
-              </div>
-            </div>
+            <img
+              src={logoNovaSur}
+              alt="Residencial Nova Sur"
+              width={160}
+              height={48}
+              className="h-9 w-auto"
+            />
           </a>
           <nav className="hidden items-center gap-8 text-sm font-medium md:flex">
             <a href="#proyecto" className="text-foreground/80 transition hover:text-primary">Proyecto</a>
@@ -222,7 +195,7 @@ function Index() {
       <section className="relative isolate min-h-[100vh] overflow-hidden pt-16">
         <img
           src={heroHouse}
-          alt="Casa modelo Urbanización San Antonio en Bugaba"
+          alt="Casa modelo Residencial Nova Sur en David, Chiriquí"
           width={1920}
           height={1080}
           className="absolute inset-0 -z-10 h-full w-full object-cover"
@@ -240,7 +213,7 @@ function Index() {
               Tu <span className="bg-gradient-to-r from-primary to-[var(--primary-glow)] bg-clip-text text-transparent">casa</span> propia sí es posible
             </h1>
             <p className="mt-6 max-w-xl text-lg text-foreground/80 sm:text-xl">
-              San Antonio es el espacio donde tu familia empieza una nueva etapa. Diseño moderno, entorno tranquilo y una comunidad pensada para vivir mejor.
+              Residencial Nova Sur es el espacio donde tu familia empieza una nueva etapa. Diseño moderno, entorno tranquilo y una comunidad pensada para vivir mejor en David, Chiriquí.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Button asChild size="lg" className="bg-primary text-primary-foreground shadow-[var(--shadow-soft)] hover:bg-primary/90">
@@ -261,13 +234,13 @@ function Index() {
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-              Urbanización San Antonio, Bugaba
+              Residencial Nova Sur, David
             </p>
             <h2 className="mt-3 text-4xl font-bold leading-tight sm:text-5xl">
               El hogar ideal para tu familia
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Descubre nuestros modelos de viviendas terminadas en la Urbanización San Antonio. Ubicación estratégica, espacios funcionales y el hogar que tu familia merece.
+              Descubre nuestros modelos de viviendas modernas en Residencial Nova Sur. Ubicación estratégica en Las Moras, espacios funcionales y el hogar que tu familia merece.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
@@ -281,7 +254,7 @@ function Index() {
           <div className="relative overflow-hidden rounded-2xl shadow-[var(--shadow-card)]">
             <img
               src={projectAerial}
-              alt="Vista aérea Urbanización San Antonio"
+              alt="Vista aérea Residencial Nova Sur"
               loading="lazy"
               width={1600}
               height={900}
@@ -291,18 +264,18 @@ function Index() {
         </div>
       </section>
 
-      {/* Why San Antonio / features */}
+      {/* Why Nova Sur / features */}
       <section id="beneficios" className="py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-              ¿Por qué San Antonio?
+              ¿Por qué Nova Sur?
             </p>
             <h2 className="mt-3 text-4xl font-bold sm:text-5xl">
               Ubicación, precio y financiamiento a tu favor
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Casas terminadas, proceso claro y acompañamiento en cada paso.
+              Casas modernas, proceso claro y acompañamiento en cada paso.
             </p>
           </div>
 
@@ -354,11 +327,11 @@ function Index() {
               Conoce nuestros modelos de casas
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Descubre las opciones disponibles y elige el hogar ideal para tu familia.
+              Dos modelos pensados para tu familia. Elige el ideal para ti.
             </p>
           </div>
 
-          <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mx-auto mt-14 grid max-w-5xl gap-8 md:grid-cols-2">
             {models.map((m) => (
               <Card
                 key={m.name}
@@ -373,29 +346,18 @@ function Index() {
                     height={768}
                     className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute right-3 top-3 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground shadow">
-                    {m.total}
-                  </div>
                 </div>
                 <CardContent className="p-6">
                   <h3 className="text-2xl font-bold">{m.name}</h3>
-                  <div className="mt-4 grid grid-cols-3 gap-2 text-center text-xs text-muted-foreground">
-                    <div className="rounded-lg bg-secondary p-2">
+                  <div className="mt-4 grid grid-cols-2 gap-2 text-center text-xs text-muted-foreground">
+                    <div className="rounded-lg bg-secondary p-3">
                       <Bed className="mx-auto h-4 w-4 text-primary" />
-                      <div className="mt-1 font-semibold text-foreground">{m.bedrooms} hab.</div>
+                      <div className="mt-1 font-semibold text-foreground">{m.bedrooms} habitaciones</div>
                     </div>
-                    <div className="rounded-lg bg-secondary p-2">
+                    <div className="rounded-lg bg-secondary p-3">
                       <Bath className="mx-auto h-4 w-4 text-primary" />
-                      <div className="mt-1 font-semibold text-foreground">{m.baths} baño{m.baths > 1 ? "s" : ""}</div>
+                      <div className="mt-1 font-semibold text-foreground">{m.baths} baño</div>
                     </div>
-                    <div className="rounded-lg bg-secondary p-2">
-                      <Ruler className="mx-auto h-4 w-4 text-primary" />
-                      <div className="mt-1 font-semibold text-foreground">{m.total}</div>
-                    </div>
-                  </div>
-                  <div className="mt-5 space-y-1 text-sm text-muted-foreground">
-                    <div className="flex justify-between"><span>Área abierta</span><span className="font-medium text-foreground">{m.open}</span></div>
-                    <div className="flex justify-between"><span>Área cerrada</span><span className="font-medium text-foreground">{m.closed}</span></div>
                   </div>
                   <ul className="mt-5 space-y-2 text-sm">
                     {m.features.map((feat) => (
@@ -433,7 +395,7 @@ function Index() {
                 </div>
                 <div>
                   <div className="text-sm font-semibold">Ubicación</div>
-                  <div className="text-sm text-muted-foreground">La Concepción, Bugaba, Chiriquí</div>
+                  <div className="text-sm text-muted-foreground">Las Moras, David, Chiriquí</div>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -453,7 +415,7 @@ function Index() {
                 </div>
                 <div>
                   <div className="text-sm font-semibold">Email</div>
-                  <div className="text-sm text-muted-foreground">info@sanantoniobugaba.com</div>
+                  <div className="text-sm text-muted-foreground">info@residencialnovasur.com</div>
                 </div>
               </div>
             </div>
@@ -479,9 +441,8 @@ function Index() {
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="Aurora">Aurora</SelectItem>
-                      <SelectItem value="Aurora Plus">Aurora Plus</SelectItem>
-                      <SelectItem value="Ventura">Ventura</SelectItem>
+                      <SelectItem value="Aura">Modelo Aura</SelectItem>
+                      <SelectItem value="Nova">Modelo Nova</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -522,7 +483,7 @@ function Index() {
               Preguntas frecuentes
             </p>
             <h2 className="mt-3 text-4xl font-bold sm:text-5xl">
-              Urbanización San Antonio
+              Residencial Nova Sur
             </h2>
           </div>
           <Accordion type="single" collapsible className="mt-10">
@@ -542,12 +503,9 @@ function Index() {
       <footer className="border-t border-border/60 bg-background py-10">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 text-sm text-muted-foreground sm:flex-row sm:px-6">
           <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-br from-primary to-[var(--primary-glow)] text-primary-foreground">
-              <Home className="h-4 w-4" />
-            </div>
-            <span className="font-semibold text-foreground">San Antonio Residencial</span>
+            <img src={logoNovaSur} alt="Residencial Nova Sur" width={140} height={42} className="h-8 w-auto" />
           </div>
-          <p>© {new Date().getFullYear()} Urbanización San Antonio, Bugaba. Todos los derechos reservados.</p>
+          <p>© {new Date().getFullYear()} Residencial Nova Sur, David, Chiriquí. Todos los derechos reservados.</p>
         </div>
       </footer>
 
