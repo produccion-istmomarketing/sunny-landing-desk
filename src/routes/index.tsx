@@ -536,53 +536,7 @@ function Index() {
 
           <Card className="border-border/60 shadow-[var(--shadow-card)]">
             <CardContent className="p-8">
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Nombre y apellido *</Label>
-                  <Input
-                    id="name"
-                    value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    placeholder="Escribe tu nombre completo"
-                    required
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label>Modelo de interés</Label>
-                  <Select value={form.model} onValueChange={(v) => setForm({ ...form, model: v })}>
-                    <SelectTrigger>
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="Aura">Modelo Aura</SelectItem>
-                      <SelectItem value="Nova">Modelo Nova</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email">Correo electrónico *</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    placeholder="ejemplo@correo.com"
-                    required
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="phone">Número de teléfono</Label>
-                  <Input
-                    id="phone"
-                    value={form.phone}
-                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    placeholder="Ej. 6000-0000"
-                  />
-                </div>
-                <Button type="submit" size="lg" className="w-full bg-primary text-primary-foreground shadow-[var(--shadow-soft)] hover:bg-primary/90">
-                  Enviar solicitud
-                </Button>
-              </form>
+              {renderForm("agenda")}
             </CardContent>
           </Card>
         </div>
