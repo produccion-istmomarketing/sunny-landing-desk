@@ -114,6 +114,11 @@ const models = [
     price: "$68,000.00",
     bedrooms: 3,
     baths: 1,
+    areas: {
+      open: "54.13 m²",
+      closed: "23.92 m²",
+      total: "78.05 m²",
+    },
     features: [
       "3 habitaciones",
       "1 baño",
@@ -127,6 +132,11 @@ const models = [
     price: "$54,000.00",
     bedrooms: 3,
     baths: 1,
+    areas: {
+      open: "54.13 m²",
+      closed: "7.92 m²",
+      total: "62.05 m²",
+    },
     features: [
       "3 habitaciones",
       "1 baño",
