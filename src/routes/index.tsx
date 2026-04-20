@@ -12,6 +12,7 @@ import {
   Ruler,
   ArrowRight,
   MessageCircle,
+  Instagram,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -62,6 +63,10 @@ export const Route = createFileRoute("/")({
 });
 
 const WHATSAPP = "https://wa.link/ujz72v";
+const PHONE = "6205 8186";
+const PHONE_TEL = "+50762058186";
+const INSTAGRAM_HANDLE = "@nova_sur";
+const INSTAGRAM_URL = "https://instagram.com/nova_sur";
 
 const features = [
   {
@@ -185,9 +190,26 @@ function Index() {
             <a href="#faq" className="text-foreground/80 transition hover:text-primary">FAQ</a>
             <a href="#agenda" className="text-foreground/80 transition hover:text-primary">Contacto</a>
           </nav>
-          <Button asChild size="sm" className="bg-primary text-primary-foreground shadow-[var(--shadow-soft)] hover:bg-primary/90">
-            <a href="#agenda">Cotiza tu nuevo hogar</a>
-          </Button>
+          <div className="flex items-center gap-2 sm:gap-3">
+            <a
+              href={`tel:${PHONE_TEL}`}
+              className="hidden items-center gap-1.5 text-sm font-semibold text-foreground/80 transition hover:text-primary sm:inline-flex"
+            >
+              <Phone className="h-4 w-4" /> {PHONE}
+            </a>
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram"
+              className="hidden h-9 w-9 items-center justify-center rounded-full text-foreground/80 transition hover:bg-primary/10 hover:text-primary sm:inline-flex"
+            >
+              <Instagram className="h-4 w-4" />
+            </a>
+            <Button asChild size="sm" className="bg-primary text-primary-foreground shadow-[var(--shadow-soft)] hover:bg-primary/90">
+              <a href="#agenda">Cotiza tu nuevo hogar</a>
+            </Button>
+          </div>
         </div>
       </header>
 
@@ -403,9 +425,24 @@ function Index() {
                   <Phone className="h-5 w-5" />
                 </div>
                 <div>
-                  <div className="text-sm font-semibold">WhatsApp</div>
-                  <a href={WHATSAPP} target="_blank" rel="noreferrer" className="text-sm text-muted-foreground hover:text-primary">
-                    Habla con un vendedor
+                  <div className="text-sm font-semibold">Teléfono / WhatsApp</div>
+                  <div className="text-sm text-muted-foreground">
+                    <a href={`tel:${PHONE_TEL}`} className="hover:text-primary">{PHONE}</a>
+                    <span className="mx-2">·</span>
+                    <a href={WHATSAPP} target="_blank" rel="noreferrer" className="hover:text-primary">
+                      Habla con un vendedor
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <Instagram className="h-5 w-5" />
+                </div>
+                <div>
+                  <div className="text-sm font-semibold">Instagram</div>
+                  <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" className="text-sm text-muted-foreground hover:text-primary">
+                    {INSTAGRAM_HANDLE}
                   </a>
                 </div>
               </div>
@@ -501,11 +538,22 @@ function Index() {
 
       {/* Footer */}
       <footer className="border-t border-border/60 bg-background py-10">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 text-sm text-muted-foreground sm:flex-row sm:px-6">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4 text-sm text-muted-foreground sm:flex-row sm:px-6">
           <div className="flex items-center gap-2">
             <img src={logoNovaSur} alt="Residencial Nova Sur" width={140} height={42} className="h-8 w-auto" />
           </div>
-          <p>© {new Date().getFullYear()} Residencial Nova Sur, David, Chiriquí. Todos los derechos reservados.</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+            <a href={`tel:${PHONE_TEL}`} className="inline-flex items-center gap-1.5 transition hover:text-primary">
+              <Phone className="h-4 w-4" /> {PHONE}
+            </a>
+            <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 transition hover:text-primary">
+              <Instagram className="h-4 w-4" /> {INSTAGRAM_HANDLE}
+            </a>
+            <a href={WHATSAPP} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 transition hover:text-primary">
+              <MessageCircle className="h-4 w-4" /> WhatsApp
+            </a>
+          </div>
+          <p className="text-center sm:text-right">© {new Date().getFullYear()} Residencial Nova Sur, David, Chiriquí.</p>
         </div>
       </footer>
 
