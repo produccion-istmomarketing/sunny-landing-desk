@@ -269,9 +269,22 @@ function Index() {
             >
               <Instagram className="h-4 w-4" />
             </a>
-            <Button asChild size="sm" className="bg-primary text-primary-foreground shadow-[var(--shadow-soft)] hover:bg-primary/90">
-              <a href="#agenda">Cotiza tu nuevo hogar</a>
-            </Button>
+            <Dialog open={quoteOpen} onOpenChange={setQuoteOpen}>
+              <DialogTrigger asChild>
+                <Button size="sm" className="bg-primary text-primary-foreground shadow-[var(--shadow-soft)] hover:bg-primary/90">
+                  Cotiza tu nuevo hogar
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-md">
+                <DialogHeader>
+                  <DialogTitle>Cotiza tu nuevo hogar</DialogTitle>
+                  <DialogDescription>
+                    Déjanos tus datos y un asesor se pondrá en contacto contigo.
+                  </DialogDescription>
+                </DialogHeader>
+                {renderForm("quote")}
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
       </header>
