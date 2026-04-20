@@ -164,16 +164,71 @@ function Index() {
     email: "",
     phone: "",
   });
+  const [quoteOpen, setQuoteOpen] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name || !form.email) {
+    if (!form.name.trim() || !form.email.trim()) {
       toast.error("Por favor completa los campos requeridos");
       return;
     }
     toast.success("¡Gracias! Te contactaremos pronto.");
     setForm({ name: "", model: "Aura", email: "", phone: "" });
+    setQuoteOpen(false);
   };
+
+  const renderForm = (idPrefix: string) => (
+    <form onSubmit={handleSubmit} className="space-y-5">
+      <div className="space-y-2">
+        <Label htmlFor={`${idPrefix}-name`}>Nombre y apellido *</Label>
+        <Input
+          id={`${idPrefix}-name`}
+          value={form.name}
+          onChange={(e) => setForm({ ...form, name: e.target.value })}
+          placeholder="Escribe tu nombre completo"
+          maxLength={100}
+          required
+        />
+      </div>
+      <div className="space-y-2">
+        <Label>Modelo de interés</Label>
+        <Select value={form.model} onValueChange={(v) => setForm({ ...form, model: v })}>
+          <SelectTrigger>
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="Aura">Modelo Aura</SelectItem>
+            <SelectItem value="Nova">Modelo Nova</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+      <div className="space-y-2">
+        <Label htmlFor={`${idPrefix}-email`}>Correo electrónico *</Label>
+        <Input
+          id={`${idPrefix}-email`}
+          type="email"
+          value={form.email}
+          onChange={(e) => setForm({ ...form, email: e.target.value })}
+          placeholder="ejemplo@correo.com"
+          maxLength={255}
+          required
+        />
+      </div>
+      <div className="space-y-2">
+        <Label htmlFor={`${idPrefix}-phone`}>Número de teléfono</Label>
+        <Input
+          id={`${idPrefix}-phone`}
+          value={form.phone}
+          onChange={(e) => setForm({ ...form, phone: e.target.value })}
+          placeholder="Ej. 6000-0000"
+          maxLength={30}
+        />
+      </div>
+      <Button type="submit" size="lg" className="w-full bg-primary text-primary-foreground shadow-[var(--shadow-soft)] hover:bg-primary/90">
+        Enviar solicitud
+      </Button>
+    </form>
+  );
 
   return (
     <div className="min-h-screen bg-background text-foreground">
