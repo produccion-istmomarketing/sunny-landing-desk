@@ -72,8 +72,8 @@
   --primary: oklch(0.7 0.18 45);
   --primary-foreground: oklch(1 0 0);
   --primary-glow: oklch(0.78 0.16 55);
-  --secondary: oklch(0.96 0.01 80);
-  --secondary-foreground: oklch(0.18 0.02 260);
+  --secondary: oklch(0.42 0.05 215);
+  --secondary-foreground: oklch(0.99 0.005 80);
   --muted: oklch(0.96 0.008 80);
   --muted-foreground: oklch(0.48 0.02 260);
   --accent: oklch(0.95 0.04 50);

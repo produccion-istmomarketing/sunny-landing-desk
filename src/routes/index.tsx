@@ -111,6 +111,7 @@ const models = [
   {
     name: "Modelo Aura",
     image: modelAura,
+    price: "$68,000.00",
     bedrooms: 3,
     baths: 1,
     features: [
@@ -123,6 +124,7 @@ const models = [
   {
     name: "Modelo Nova",
     image: modelNova,
+    price: "$54,000.00",
     bedrooms: 3,
     baths: 1,
     features: [
@@ -446,7 +448,10 @@ function Index() {
                   />
                 </div>
                 <CardContent className="p-6">
-                  <h3 className="text-2xl font-bold">{m.name}</h3>
+                  <div className="flex items-baseline justify-between gap-3">
+                    <h3 className="text-2xl font-bold">{m.name}</h3>
+                    <span className="text-xl font-bold text-primary">{m.price}</span>
+                  </div>
                   <div className="mt-4 grid grid-cols-2 gap-2 text-center text-xs text-muted-foreground">
                     <div className="rounded-lg bg-secondary p-3">
                       <Bed className="mx-auto h-4 w-4 text-primary" />
