@@ -31,6 +31,14 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
 
@@ -156,16 +164,71 @@ function Index() {
     email: "",
     phone: "",
   });
+  const [quoteOpen, setQuoteOpen] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name || !form.email) {
+    if (!form.name.trim() || !form.email.trim()) {
       toast.error("Por favor completa los campos requeridos");
       return;
     }
     toast.success("¡Gracias! Te contactaremos pronto.");
     setForm({ name: "", model: "Aura", email: "", phone: "" });
+    setQuoteOpen(false);
   };
+
+  const renderForm = (idPrefix: string) => (
+    <form onSubmit={handleSubmit} className="space-y-5">
+      <div className="space-y-2">
+        <Label htmlFor={`${idPrefix}-name`}>Nombre y apellido *</Label>
+        <Input
+          id={`${idPrefix}-name`}
+          value={form.name}
+          onChange={(e) => setForm({ ...form, name: e.target.value })}
+          placeholder="Escribe tu nombre completo"
+          maxLength={100}
+          required
+        />
+      </div>
+      <div className="space-y-2">
+        <Label>Modelo de interés</Label>
+        <Select value={form.model} onValueChange={(v) => setForm({ ...form, model: v })}>
+          <SelectTrigger>
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="Aura">Modelo Aura</SelectItem>
+            <SelectItem value="Nova">Modelo Nova</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+      <div className="space-y-2">
+        <Label htmlFor={`${idPrefix}-email`}>Correo electrónico *</Label>
+        <Input
+          id={`${idPrefix}-email`}
+          type="email"
+          value={form.email}
+          onChange={(e) => setForm({ ...form, email: e.target.value })}
+          placeholder="ejemplo@correo.com"
+          maxLength={255}
+          required
+        />
+      </div>
+      <div className="space-y-2">
+        <Label htmlFor={`${idPrefix}-phone`}>Número de teléfono</Label>
+        <Input
+          id={`${idPrefix}-phone`}
+          value={form.phone}
+          onChange={(e) => setForm({ ...form, phone: e.target.value })}
+          placeholder="Ej. 6000-0000"
+          maxLength={30}
+        />
+      </div>
+      <Button type="submit" size="lg" className="w-full bg-primary text-primary-foreground shadow-[var(--shadow-soft)] hover:bg-primary/90">
+        Enviar solicitud
+      </Button>
+    </form>
+  );
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -206,9 +269,22 @@ function Index() {
             >
               <Instagram className="h-4 w-4" />
             </a>
-            <Button asChild size="sm" className="bg-primary text-primary-foreground shadow-[var(--shadow-soft)] hover:bg-primary/90">
-              <a href="#agenda">Cotiza tu nuevo hogar</a>
-            </Button>
+            <Dialog open={quoteOpen} onOpenChange={setQuoteOpen}>
+              <DialogTrigger asChild>
+                <Button size="sm" className="bg-primary text-primary-foreground shadow-[var(--shadow-soft)] hover:bg-primary/90">
+                  Cotiza tu nuevo hogar
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-md">
+                <DialogHeader>
+                  <DialogTitle>Cotiza tu nuevo hogar</DialogTitle>
+                  <DialogDescription>
+                    Déjanos tus datos y un asesor se pondrá en contacto contigo.
+                  </DialogDescription>
+                </DialogHeader>
+                {renderForm("quote")}
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
       </header>
@@ -460,53 +536,7 @@ function Index() {
 
           <Card className="border-border/60 shadow-[var(--shadow-card)]">
             <CardContent className="p-8">
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Nombre y apellido *</Label>
-                  <Input
-                    id="name"
-                    value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    placeholder="Escribe tu nombre completo"
-                    required
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label>Modelo de interés</Label>
-                  <Select value={form.model} onValueChange={(v) => setForm({ ...form, model: v })}>
-                    <SelectTrigger>
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="Aura">Modelo Aura</SelectItem>
-                      <SelectItem value="Nova">Modelo Nova</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email">Correo electrónico *</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    placeholder="ejemplo@correo.com"
-                    required
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="phone">Número de teléfono</Label>
-                  <Input
-                    id="phone"
-                    value={form.phone}
-                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    placeholder="Ej. 6000-0000"
-                  />
-                </div>
-                <Button type="submit" size="lg" className="w-full bg-primary text-primary-foreground shadow-[var(--shadow-soft)] hover:bg-primary/90">
-                  Enviar solicitud
-                </Button>
-              </form>
+              {renderForm("agenda")}
             </CardContent>
           </Card>
         </div>
