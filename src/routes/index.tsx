@@ -462,15 +462,20 @@ function Index() {
                     <h3 className="text-2xl font-bold">{m.name}</h3>
                     <span className="text-xl font-bold text-primary">{m.price}</span>
                   </div>
-                  <div className="mt-4 grid grid-cols-2 gap-2 text-center text-xs text-muted-foreground">
+                  <div className="mt-4 grid grid-cols-2 gap-2 text-center text-xs">
                     <div className="rounded-lg bg-secondary p-3">
-                      <Bed className="mx-auto h-4 w-4 text-primary" />
-                      <div className="mt-1 font-semibold text-foreground">{m.bedrooms} habitaciones</div>
+                      <Bed className="mx-auto h-4 w-4 text-white" />
+                      <div className="mt-1 font-semibold text-white">{m.bedrooms} habitaciones</div>
                     </div>
                     <div className="rounded-lg bg-secondary p-3">
-                      <Bath className="mx-auto h-4 w-4 text-primary" />
-                      <div className="mt-1 font-semibold text-foreground">{m.baths} baño</div>
+                      <Bath className="mx-auto h-4 w-4 text-white" />
+                      <div className="mt-1 font-semibold text-white">{m.baths} baño</div>
                     </div>
+                  </div>
+                  <div className="mt-4 rounded-lg border border-border/60 p-4 text-sm">
+                    <div className="flex justify-between"><span className="text-muted-foreground">Área abierta</span><span className="font-medium">{m.areas.open}</span></div>
+                    <div className="mt-1 flex justify-between"><span className="text-muted-foreground">Área cerrada</span><span className="font-medium">{m.areas.closed}</span></div>
+                    <div className="mt-2 flex justify-between border-t border-border/60 pt-2 font-semibold"><span>TOTAL</span><span className="text-primary">{m.areas.total}</span></div>
                   </div>
                   <ul className="mt-5 space-y-2 text-sm">
                     {m.features.map((feat) => (
