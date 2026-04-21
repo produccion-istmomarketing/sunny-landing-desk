@@ -89,7 +89,7 @@ const features = [
   },
   {
     icon: Wallet,
-    title: "Precio accesible",
+    title: "Precio asequible",
     items: [
       "Casas nuevas con precios competitivos",
       "Cuotas pensadas para familias jóvenes",
