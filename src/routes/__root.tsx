@@ -33,6 +33,12 @@ export const Route = createRootRoute({
       { name: "description", content: "Casas modernas en David, Chiriquí. Tu casa propia sí es posible." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "Residencial Nova Sur — David, Chiriquí" },
+      { name: "twitter:title", content: "Residencial Nova Sur — David, Chiriquí" },
+      { property: "og:description", content: "Casas modernas en David, Chiriquí. Tu casa propia sí es posible." },
+      { name: "twitter:description", content: "Casas modernas en David, Chiriquí. Tu casa propia sí es posible." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a5265322-ef57-4c8e-97b6-4baec4228294/id-preview-640bdaae--606d23bb-ae6b-4cb0-97be-8b553610bd86.lovable.app-1776794235535.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a5265322-ef57-4c8e-97b6-4baec4228294/id-preview-640bdaae--606d23bb-ae6b-4cb0-97be-8b553610bd86.lovable.app-1776794235535.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
