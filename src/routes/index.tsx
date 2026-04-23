@@ -184,7 +184,18 @@ function Index() {
       toast.error("Por favor completa los campos requeridos");
       return;
     }
-    toast.success("¡Gracias! Te contactaremos pronto.");
+    const to = "produccion@istmomarketing.com";
+    const subject = `Nueva cotización - Residencial Nova Sur (${form.model})`;
+    const body =
+      `Hola,\n\nTengo interés en recibir más información sobre Residencial Nova Sur.\n\n` +
+      `Nombre: ${form.name}\n` +
+      `Modelo de interés: ${form.model}\n` +
+      `Correo: ${form.email}\n` +
+      `Teléfono: ${form.phone || "No proporcionado"}\n\n` +
+      `Gracias.`;
+    const mailto = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
+    toast.success("¡Gracias! Abriendo tu cliente de correo...");
     setForm({ name: "", model: "Aura", email: "", phone: "" });
     setQuoteOpen(false);
   };
