@@ -184,7 +184,7 @@ function Index() {
       toast.error("Por favor completa los campos requeridos");
       return;
     }
-    const to = "produccion@istmomarketing.com";
+    const to = "produccion@istmomarketingpa.com";
     const subject = `Nueva cotización - Residencial Nova Sur (${form.model})`;
     const body =
       `Hola,\n\nTengo interés en recibir más información sobre Residencial Nova Sur.\n\n` +
