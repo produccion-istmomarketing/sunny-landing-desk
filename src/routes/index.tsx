@@ -115,8 +115,8 @@ const models = [
     bedrooms: 3,
     baths: 1,
     areas: {
-      open: "54.13 m²",
-      closed: "23.92 m²",
+      open: "23.92 m²",
+      closed: "54.13 m²",
       total: "78.05 m²",
     },
     features: [
@@ -133,8 +133,8 @@ const models = [
     bedrooms: 3,
     baths: 1,
     areas: {
-      open: "54.13 m²",
-      closed: "7.92 m²",
+      open: "7.92 m²",
+      closed: "54.13 m²",
       total: "62.05 m²",
     },
     features: [
