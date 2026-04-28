@@ -262,6 +262,33 @@ function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Toaster position="top-center" richColors />
+        <Dialog open={Boolean(galleryModel)} onOpenChange={(open) => !open && setGalleryModel(null)}>
+          <DialogContent className="max-h-[90vh] max-w-5xl overflow-y-auto">
+            <DialogHeader>
+              <DialogTitle>{galleryModel?.name}</DialogTitle>
+              <DialogDescription>Galería de imágenes del modelo seleccionado.</DialogDescription>
+            </DialogHeader>
+            {galleryModel ? (
+              <div className="grid gap-4 sm:grid-cols-2">
+                {[
+                  { src: galleryModel.image, alt: galleryModel.name, label: "Vista del modelo" },
+                  { src: galleryModel.hoverImage, alt: `Plano de ${galleryModel.name}`, label: "Plano del modelo" },
+                ].map((image) => (
+                  <figure key={image.label} className="overflow-hidden rounded-xl border border-border/60 bg-card">
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="h-auto max-h-[70vh] w-full object-contain"
+                    />
+                    <figcaption className="border-t border-border/60 px-4 py-3 text-sm font-medium text-muted-foreground">
+                      {image.label}
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+            ) : null}
+          </DialogContent>
+        </Dialog>
 
       {/* Header */}
       <header className="fixed inset-x-0 top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-md">
