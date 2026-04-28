@@ -45,6 +45,8 @@ import { Toaster } from "@/components/ui/sonner";
 import heroHouse from "@/assets/hero-house.jpg";
 import modelAura from "@/assets/model-aura.jpg";
 import modelNova from "@/assets/model-nova.jpg";
+import plantaAura from "@/assets/planta-aura.png";
+import plantaNova from "@/assets/planta-nova.jpg";
 import projectAerial from "@/assets/project-aerial.jpg";
 import logoNovaSur from "@/assets/logo-nova-sur.png";
 
@@ -111,6 +113,7 @@ const models = [
   {
     name: "Modelo Aura",
     image: modelAura,
+    hoverImage: plantaAura,
     price: "$68,000.00",
     bedrooms: 3,
     baths: 1,
@@ -129,6 +132,7 @@ const models = [
   {
     name: "Modelo Nova",
     image: modelNova,
+    hoverImage: plantaNova,
     price: "$54,000.00",
     bedrooms: 3,
     baths: 1,
@@ -465,7 +469,15 @@ function Index() {
                     loading="lazy"
                     width={1024}
                     height={768}
-                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                    className="h-full w-full object-cover transition duration-300 group-hover:scale-105 group-hover:opacity-0"
+                  />
+                  <img
+                    src={m.hoverImage}
+                    alt={`Plano de ${m.name}`}
+                    loading="lazy"
+                    width={1024}
+                    height={768}
+                    className="absolute inset-0 h-full w-full object-cover opacity-0 transition duration-300 group-hover:scale-105 group-hover:opacity-100"
                   />
                 </div>
                 <CardContent className="p-6">
