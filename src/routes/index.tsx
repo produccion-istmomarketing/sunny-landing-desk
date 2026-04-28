@@ -13,6 +13,7 @@ import {
   ArrowRight,
   MessageCircle,
   Instagram,
+  Images,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -181,6 +182,7 @@ function Index() {
     phone: "",
   });
   const [quoteOpen, setQuoteOpen] = useState(false);
+  const [galleryModel, setGalleryModel] = useState<(typeof models)[number] | null>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -462,14 +464,19 @@ function Index() {
                 key={m.name}
                 className="group overflow-hidden border-border/60 pt-0 transition hover:-translate-y-1 hover:shadow-[var(--shadow-card)]"
               >
-                <div className="relative aspect-[4/3] overflow-hidden">
+                <button
+                  type="button"
+                  onClick={() => setGalleryModel(m)}
+                  className="group/image relative block aspect-[4/3] w-full overflow-hidden text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                  aria-label={`Abrir galería de ${m.name}`}
+                >
                   <img
                     src={m.image}
                     alt={m.name}
                     loading="lazy"
                     width={1024}
                     height={768}
-                    className="h-full w-full object-cover transition duration-300 group-hover:scale-105 group-hover:opacity-0"
+                    className="h-full w-full object-cover transition duration-300 group-hover:scale-105 group-hover:opacity-0 group-focus-visible/image:scale-105 group-focus-visible/image:opacity-0"
                   />
                   <img
                     src={m.hoverImage}
@@ -477,9 +484,12 @@ function Index() {
                     loading="lazy"
                     width={1024}
                     height={768}
-                    className="absolute inset-0 h-full w-full object-cover opacity-0 transition duration-300 group-hover:scale-105 group-hover:opacity-100"
+                    className="absolute inset-0 h-full w-full object-cover opacity-0 transition duration-300 group-hover:scale-105 group-hover:opacity-100 group-focus-visible/image:scale-105 group-focus-visible/image:opacity-100"
                   />
-                </div>
+                  <span className="absolute bottom-4 right-4 inline-flex h-11 w-11 items-center justify-center rounded-full bg-background/90 text-foreground shadow-[var(--shadow-soft)] backdrop-blur transition group-hover/image:scale-105">
+                    <Images className="h-5 w-5" />
+                  </span>
+                </button>
                 <CardContent className="p-6">
                   <div className="flex items-baseline justify-between gap-3">
                     <h3 className="text-2xl font-bold">{m.name}</h3>
