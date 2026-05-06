@@ -11,6 +11,8 @@ import {
   Bath,
   Ruler,
   ArrowRight,
+  ChevronLeft,
+  ChevronRight,
   MessageCircle,
   Instagram,
   Images,
