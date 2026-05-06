@@ -432,6 +432,24 @@ function Index() {
           </div>
         </div>
 
+        {/* Arrow controls */}
+        <button
+          type="button"
+          aria-label="Slide anterior"
+          onClick={() => setHeroSlide((s) => (s + 1) % 2)}
+          className="absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full border border-border/60 bg-background/70 p-2 text-foreground backdrop-blur-md transition hover:bg-background sm:left-6"
+        >
+          <ChevronLeft className="h-5 w-5" />
+        </button>
+        <button
+          type="button"
+          aria-label="Slide siguiente"
+          onClick={() => setHeroSlide((s) => (s + 1) % 2)}
+          className="absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full border border-border/60 bg-background/70 p-2 text-foreground backdrop-blur-md transition hover:bg-background sm:right-6"
+        >
+          <ChevronRight className="h-5 w-5" />
+        </button>
+
         {/* Slide indicators */}
         <div className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 gap-2">
           {[0, 1].map((i) => (
