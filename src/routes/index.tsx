@@ -47,6 +47,7 @@ import { Toaster } from "@/components/ui/sonner";
 
 import heroHouse from "@/assets/hero-house.jpg";
 import heroKeys from "@/assets/hero-keys.jpg";
+import heroFinancing from "@/assets/hero-financing.jpg";
 import modelAura from "@/assets/model-aura.jpg";
 import modelNova from "@/assets/model-nova.jpg";
 import plantaAura from "@/assets/planta-aura.png";
@@ -188,7 +189,7 @@ function Index() {
   const [galleryModel, setGalleryModel] = useState<(typeof models)[number] | null>(null);
   const [heroSlide, setHeroSlide] = useState(0);
   useEffect(() => {
-    const id = setInterval(() => setHeroSlide((s) => (s + 1) % 2), 5000);
+    const id = setInterval(() => setHeroSlide((s) => (s + 1) % 3), 5000);
     return () => clearInterval(id);
   }, []);
 
@@ -432,11 +433,48 @@ function Index() {
           </div>
         </div>
 
+        {/* Slide 3 */}
+        <div
+          className={`absolute inset-0 transition-opacity duration-1000 ${heroSlide === 2 ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+        >
+          <img
+            src={heroFinancing}
+            alt="Financiamiento bancario para comprar tu casa en Residencial Nova Sur"
+            width={1920}
+            height={1080}
+            className="absolute inset-0 -z-10 h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-background/90 via-background/50 to-transparent" />
+          <div className="absolute inset-0 -z-10 [background:var(--gradient-hero)]" />
+
+          <div className="mx-auto flex min-h-[calc(100vh-4rem)] max-w-7xl items-center px-4 sm:px-6">
+            <div className="max-w-2xl py-20">
+              <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                Financiamiento bancario
+              </span>
+              <h1 className="mt-6 text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
+                Compra tu casa con el respaldo de los mejores bancos
+              </h1>
+              <p className="mt-6 max-w-xl text-lg text-foreground/80 sm:text-xl">
+                Contamos con alianzas con Banco Nacional, Global Bank y Caja de Ahorros para que financiar tu hogar sea más fácil que nunca.
+              </p>
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <Button asChild size="lg" className="bg-primary text-primary-foreground shadow-[var(--shadow-soft)] hover:bg-primary/90">
+                  <a href={WHATSAPP} target="_blank" rel="noreferrer">
+                    Solicitar información <ArrowRight className="ml-1 h-4 w-4" />
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Arrow controls */}
         <button
           type="button"
           aria-label="Slide anterior"
-          onClick={() => setHeroSlide((s) => (s + 1) % 2)}
+          onClick={() => setHeroSlide((s) => (s + 2) % 3)}
           className="absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full border border-border/60 bg-background/70 p-2 text-foreground backdrop-blur-md transition hover:bg-background sm:left-6"
         >
           <ChevronLeft className="h-5 w-5" />
@@ -444,7 +482,7 @@ function Index() {
         <button
           type="button"
           aria-label="Slide siguiente"
-          onClick={() => setHeroSlide((s) => (s + 1) % 2)}
+          onClick={() => setHeroSlide((s) => (s + 1) % 3)}
           className="absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full border border-border/60 bg-background/70 p-2 text-foreground backdrop-blur-md transition hover:bg-background sm:right-6"
         >
           <ChevronRight className="h-5 w-5" />
@@ -452,7 +490,7 @@ function Index() {
 
         {/* Slide indicators */}
         <div className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 gap-2">
-          {[0, 1].map((i) => (
+          {[0, 1, 2].map((i) => (
             <button
               key={i}
               type="button"
