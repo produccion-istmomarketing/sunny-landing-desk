@@ -351,41 +351,96 @@ function Index() {
         </div>
       </header>
 
-      {/* Hero */}
+      {/* Hero Carousel */}
       <section className="relative isolate min-h-[100vh] overflow-hidden pt-16">
-        <img
-          src={heroHouse}
-          alt="Casa modelo Residencial Nova Sur en David, Chiriquí"
-          width={1920}
-          height={1080}
-          className="absolute inset-0 -z-10 h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-background/90 via-background/50 to-transparent" />
-        <div className="absolute inset-0 -z-10 [background:var(--gradient-hero)]" />
+        {/* Slide 1 */}
+        <div
+          className={`absolute inset-0 transition-opacity duration-1000 ${heroSlide === 0 ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+        >
+          <img
+            src={heroHouse}
+            alt="Casa modelo Residencial Nova Sur en David, Chiriquí"
+            width={1920}
+            height={1080}
+            className="absolute inset-0 -z-10 h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-background/90 via-background/50 to-transparent" />
+          <div className="absolute inset-0 -z-10 [background:var(--gradient-hero)]" />
 
-        <div className="mx-auto flex min-h-[calc(100vh-4rem)] max-w-7xl items-center px-4 sm:px-6">
-          <div className="max-w-2xl py-20">
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
-              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-              Tu casa propia sí es posible
-            </span>
-            <h1 className="mt-6 text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
-              Tu <span className="bg-gradient-to-r from-primary to-[var(--primary-glow)] bg-clip-text text-transparent">casa</span> propia sí es posible
-            </h1>
-            <p className="mt-6 max-w-xl text-lg text-foreground/80 sm:text-xl">
-              Residencial Nova Sur es el espacio donde tu familia empieza una nueva etapa. Diseño moderno, entorno tranquilo y una comunidad pensada para vivir mejor en David, Chiriquí.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Button asChild size="lg" className="bg-primary text-primary-foreground shadow-[var(--shadow-soft)] hover:bg-primary/90">
-                <a href={WHATSAPP} target="_blank" rel="noreferrer">
-                  Agenda tu visita <ArrowRight className="ml-1 h-4 w-4" />
-                </a>
-              </Button>
-              <Button asChild size="lg" variant="outline">
-                <a href="#modelos">Ver modelos</a>
-              </Button>
+          <div className="mx-auto flex min-h-[calc(100vh-4rem)] max-w-7xl items-center px-4 sm:px-6">
+            <div className="max-w-2xl py-20">
+              <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                Tu casa propia sí es posible
+              </span>
+              <h1 className="mt-6 text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
+                Tu <span className="bg-gradient-to-r from-primary to-[var(--primary-glow)] bg-clip-text text-transparent">casa</span> propia sí es posible
+              </h1>
+              <p className="mt-6 max-w-xl text-lg text-foreground/80 sm:text-xl">
+                Residencial Nova Sur es el espacio donde tu familia empieza una nueva etapa. Diseño moderno, entorno tranquilo y una comunidad pensada para vivir mejor en David, Chiriquí.
+              </p>
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <Button asChild size="lg" className="bg-primary text-primary-foreground shadow-[var(--shadow-soft)] hover:bg-primary/90">
+                  <a href={WHATSAPP} target="_blank" rel="noreferrer">
+                    Agenda tu visita <ArrowRight className="ml-1 h-4 w-4" />
+                  </a>
+                </Button>
+                <Button asChild size="lg" variant="outline">
+                  <a href="#modelos">Ver modelos</a>
+                </Button>
+              </div>
             </div>
           </div>
+        </div>
+
+        {/* Slide 2 */}
+        <div
+          className={`absolute inset-0 transition-opacity duration-1000 ${heroSlide === 1 ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+        >
+          <img
+            src={heroKeys}
+            alt="Cliente recibiendo las llaves de su nuevo hogar en Residencial Nova Sur"
+            width={1920}
+            height={1080}
+            className="absolute inset-0 -z-10 h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-background/90 via-background/50 to-transparent" />
+          <div className="absolute inset-0 -z-10 [background:var(--gradient-hero)]" />
+
+          <div className="mx-auto flex min-h-[calc(100vh-4rem)] max-w-7xl items-center px-4 sm:px-6">
+            <div className="max-w-2xl py-20">
+              <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                Listas para habitar
+              </span>
+              <h1 className="mt-6 text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
+                En Residencial Nova Sur mereces un hogar propio, estable y cerca del corazón de la ciudad 🏠
+              </h1>
+              <p className="mt-6 max-w-xl text-lg text-foreground/80 sm:text-xl">
+                Casas desde $55,000, listas para habitar.
+              </p>
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <Button asChild size="lg" className="bg-primary text-primary-foreground shadow-[var(--shadow-soft)] hover:bg-primary/90">
+                  <a href={WHATSAPP} target="_blank" rel="noreferrer">
+                    Solicitar información <ArrowRight className="ml-1 h-4 w-4" />
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Slide indicators */}
+        <div className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 gap-2">
+          {[0, 1].map((i) => (
+            <button
+              key={i}
+              type="button"
+              aria-label={`Ir al slide ${i + 1}`}
+              onClick={() => setHeroSlide(i)}
+              className={`h-2 rounded-full transition-all ${heroSlide === i ? "w-8 bg-primary" : "w-2 bg-foreground/30"}`}
+            />
+          ))}
         </div>
       </section>
 
