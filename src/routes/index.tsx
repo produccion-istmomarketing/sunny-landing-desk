@@ -166,7 +166,7 @@ const faqs = [
   },
   {
     q: "¿Trabajan con bancos para el financiamiento?",
-    a: "Sí. Contamos con alianzas con bancos, incluyendo Banco Nacional, y te acompañamos durante todo el proceso de gestión hipotecaria, desde la precalificación hasta la aprobación del crédito.",
+    a: "Sí. Contamos con alianzas con bancos, incluyendo Banco Nacional, Global Bank, y Caja de Ahorros, y te acompañamos durante todo el proceso de gestión hipotecaria, desde la precalificación hasta la aprobación del crédito.",
   },
   {
     q: "¿Hay fácil acceso al transporte y comercios?",
