@@ -11,6 +11,8 @@ import {
   Bath,
   Ruler,
   ArrowRight,
+  ChevronLeft,
+  ChevronRight,
   MessageCircle,
   Instagram,
   Images,
@@ -414,7 +416,7 @@ function Index() {
                 Listas para habitar
               </span>
               <h1 className="mt-6 text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
-                En Residencial Nova Sur mereces un hogar propio, estable y cerca del corazón de la ciudad 🏠
+                Mereces un lugar estable y cerca del corazón de la ciudad
               </h1>
               <p className="mt-6 max-w-xl text-lg text-foreground/80 sm:text-xl">
                 Casas desde $55,000, listas para habitar.
@@ -429,6 +431,24 @@ function Index() {
             </div>
           </div>
         </div>
+
+        {/* Arrow controls */}
+        <button
+          type="button"
+          aria-label="Slide anterior"
+          onClick={() => setHeroSlide((s) => (s + 1) % 2)}
+          className="absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full border border-border/60 bg-background/70 p-2 text-foreground backdrop-blur-md transition hover:bg-background sm:left-6"
+        >
+          <ChevronLeft className="h-5 w-5" />
+        </button>
+        <button
+          type="button"
+          aria-label="Slide siguiente"
+          onClick={() => setHeroSlide((s) => (s + 1) % 2)}
+          className="absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full border border-border/60 bg-background/70 p-2 text-foreground backdrop-blur-md transition hover:bg-background sm:right-6"
+        >
+          <ChevronRight className="h-5 w-5" />
+        </button>
 
         {/* Slide indicators */}
         <div className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 gap-2">
