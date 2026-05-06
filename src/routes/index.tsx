@@ -44,6 +44,7 @@ import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
 
 import heroHouse from "@/assets/hero-house.jpg";
+import heroKeys from "@/assets/hero-keys.jpg";
 import modelAura from "@/assets/model-aura.jpg";
 import modelNova from "@/assets/model-nova.jpg";
 import plantaAura from "@/assets/planta-aura.png";
