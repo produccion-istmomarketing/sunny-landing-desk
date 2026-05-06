@@ -184,6 +184,11 @@ function Index() {
   });
   const [quoteOpen, setQuoteOpen] = useState(false);
   const [galleryModel, setGalleryModel] = useState<(typeof models)[number] | null>(null);
+  const [heroSlide, setHeroSlide] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setHeroSlide((s) => (s + 1) % 2), 5000);
+    return () => clearInterval(id);
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
