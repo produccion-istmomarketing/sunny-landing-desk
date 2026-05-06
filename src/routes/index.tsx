@@ -115,7 +115,7 @@ const models = [
     name: "Modelo Aura",
     image: modelAura,
     hoverImage: plantaAura,
-    price: "$55,000.00",
+    price: "$64,000.00",
     bedrooms: 3,
     baths: 1,
     areas: {
@@ -134,7 +134,7 @@ const models = [
     name: "Modelo Nova",
     image: modelNova,
     hoverImage: plantaNova,
-    price: "$54,000.00",
+    price: "$55,000.00",
     bedrooms: 3,
     baths: 1,
     areas: {
