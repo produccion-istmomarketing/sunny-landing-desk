@@ -416,7 +416,7 @@ function Index() {
                 Listas para habitar
               </span>
               <h1 className="mt-6 text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
-                En Residencial Nova Sur mereces un hogar propio, estable y cerca del corazón de la ciudad 🏠
+                Mereces un lugar estable y cerca del corazón de la ciudad
               </h1>
               <p className="mt-6 max-w-xl text-lg text-foreground/80 sm:text-xl">
                 Casas desde $55,000, listas para habitar.
